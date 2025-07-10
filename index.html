@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;El Traductor Matemático - Píldora de Conocimiento&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.tab-active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #3b82f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.content-section {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.content-section.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.highlight-data { background-color: #fef08a; } /* Amarillo */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.highlight-keyword { background-color: #bfdbfe; } /* Azul */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.highlight-question { border: 2px solid #f87171; border-radius: 5px; padding: 2px; } /* Rojo */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.selectable { cursor: pointer; transition: all 0.2s; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.selectable:hover { filter: brightness(95%); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-50 text-slate-800"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container mx-auto p-4 md:p-8 max-w-5xl"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Encabezado --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header class="text-center mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-4xl md:text-5xl font-bold text-blue-600"&gt;🚀 El Traductor Matemático 🚀&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="mt-4 text-lg text-slate-600"&gt;Tu entrenamiento para hackear la prueba de matemáticas del Saber 11.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="score-display" class="mt-4 text-2xl font-bold text-green-700 bg-green-100 py-2 px-4 rounded-lg inline-block"&gt;Puntaje: 0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Navegación de Capítulos --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;nav class="flex justify-center flex-wrap gap-2 md:gap-4 mb-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('intro')" class="nav-button tab-active font-semibold py-2 px-4 rounded-full transition-all duration-300 border-2 border-transparent"&gt;Inicio&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('cap1')" class="nav-button font-semibold py-2 px-4 rounded-full transition-all duration-300 border-2 border-transparent"&gt;Cap. 1: Gráficos a Palabras&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('cap2')" class="nav-button font-semibold py-2 px-4 rounded-full transition-all duration-300 border-2 border-transparent"&gt;Cap. 2: Palabras a Números&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showSection('cap3')" class="nav-button font-semibold py-2 px-4 rounded-full transition-all duration-300 border-2 border-transparent"&gt;Cap. 3: Tablas a Gráficos&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Contenido Dinámico --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main id="main-content"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Sección de Introducción --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="intro" class="content-section active bg-white p-6 rounded-xl shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="text-2xl font-bold mb-4 text-blue-600"&gt;¡Bienvenido/a al Nivel 1!&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mb-4"&gt;En las próximas tres semanas, vamos a hackear la prueba de matemáticas. Olvídate de memorizar fórmulas sin sentido. Aquí aprenderás a pensar como un estratega, y nuestra primera misión es convertirnos en &lt;strong&gt;Traductores Matemáticos&lt;/strong&gt;.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;¿Qué hace un traductor? Pasa un idioma a otro. Nosotros vamos a aprender a traducir de &lt;strong&gt;GRÁFICOS 📊 a PALABRAS&lt;/strong&gt;, de &lt;strong&gt;PALABRAS 📝 a NÚMEROS&lt;/strong&gt;, y de &lt;strong&gt;TABLAS 📋 a GRÁFICOS&lt;/strong&gt;.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;p class="mt-4 font-semibold"&gt;Cuando domines esto, ninguna pregunta te podrá intimidar. ¡Vamos a darle!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Capítulo 1: De Gráficos a Palabras --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="cap1" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-6 rounded-xl shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold mb-2 text-blue-600"&gt;Capítulo 1: De Gráficos a Palabras&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p class="mb-6"&gt;El arte de "leer" dibujos. Piensa en los gráficos como si fueran memes o emojis. Con una sola imagen, te cuentan una historia completa.&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">                    </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex border-b mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="chart-tab tab-active flex-1 text-center font-semibold p-3" onclick="showChart(event, 'bar')"&gt;📊 De Barras&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="chart-tab flex-1 text-center font-semibold p-3 text-slate-500" onclick="showChart(event, 'line')"&gt;📈 Lineal&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button class="chart-tab flex-1 text-center font-semibold p-3 text-slate-500" onclick="showChart(event, 'pie')"&gt;🥧 Circular&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Contenido Gráfico de Barras --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="bar" class="chart-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold mb-2"&gt;El Gráfico de Barras: El Comparador Definitivo&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;Úsalo cuando quieras comparar cosas. ¿Qué es más popular? ¿Quién tiene más? ¿Dónde hay menos?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid md:grid-cols-2 gap-6 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;canvas id="barChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-semibold"&gt;Traducción PRO (Nivel ICFES):&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-slate-600 bg-blue-50 p-3 rounded-lg"&gt;"Según los datos, Netflix es la plataforma más popular entre los estudiantes, superando a las demás. Sorprendentemente, TikTok tiene más seguidores que Twitch y YouTube para ver series. La plataforma menos preferida del grupo es YouTube".&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Contenido Gráfico Lineal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="line" class="chart-content hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold mb-2"&gt;El Gráfico Lineal: El Contador de Chismes (o de Cambios)&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;Este gráfico es perfecto para mostrar cómo algo cambia con el tiempo. ¿Subió? ¿Bajó? ¿Se mantuvo estable?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                         </span>&lt;div class="grid md:grid-cols-2 gap-6 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;canvas id="lineChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-semibold"&gt;Traducción PRO (Nivel ICFES):&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-slate-600 bg-blue-50 p-3 rounded-lg"&gt;"Mi rendimiento en 'Arena de Héroes' tuvo una tendencia general al alza durante la semana. Empecé con una puntuación baja, pero tuve un progreso significativo a mitad de semana, especialmente el miércoles. Aunque mi nivel se estancó hacia el final de la semana laboral, mi mejor desempeño fue claramente el sábado, logrando mi puntuación más alta. El domingo, aunque jugué, mi puntuación disminuyó ligeramente en comparación con el pico del día anterior".&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- Contenido Gráfico Circular --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="pie" class="chart-content hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="text-xl font-bold mb-2"&gt;El Gráfico Circular (o de Torta): El Repartidor&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p class="mb-4"&gt;Este lo usas para mostrar las partes de un todo. Siempre representa un 100%.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="grid md:grid-cols-2 gap-6 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="relative mx-auto" style="height:320px; width:320px;"&gt;&lt;canvas id="pieChart"&gt;&lt;/canvas&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;h4 class="font-semibold"&gt;Traducción PRO (Nivel ICFES):&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;p class="text-slate-600 bg-blue-50 p-3 rounded-lg"&gt;"La mayor parte de mi día, aproximadamente un tercio, la dedico a dormir. El colegio consume exactamente una cuarta parte de mi tiempo. El estudio en casa representa una porción más pequeña pero significativa. Es interesante notar que dedico más tiempo a estudiar (17%) que al ocio digital (15%). El tiempo restante, la porción más pequeña, lo invierto en comidas y momentos familiares".&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Capítulo 2: De Palabras a Números --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="cap2" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-6 rounded-xl shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold mb-2 text-blue-600"&gt;Capítulo 2: De Palabras a Números&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="bg-slate-100 p-4 rounded-lg mb-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;h3 class="font-bold"&gt;Técnica de Detective: Subrayar y Separar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;p&gt;Selecciona una herramienta y haz clic en las palabras del texto para clasificarlas.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="flex gap-2 mt-2" id="detective-tools"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="tool-button border-2 border-yellow-400 bg-yellow-200 text-yellow-800 py-1 px-3 rounded-md" data-tool="data"&gt;Dato 🟡&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="tool-button border-2 border-blue-400 bg-blue-200 text-blue-800 py-1 px-3 rounded-md" data-tool="keyword"&gt;Clave 🔵&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;button class="tool-button border-2 border-red-400 bg-red-200 text-red-800 py-1 px-3 rounded-md" data-tool="question"&gt;Pregunta ⭕&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="problem-text" class="text-lg leading-relaxed mb-4 p-4 border rounded-lg"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="flex gap-4 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button onclick="checkDetectiveWork()" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700"&gt;Verificar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;button id="retry-cap2" onclick="resetDetectiveWork()" class="hidden bg-amber-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-600"&gt;Reintentar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="detective-feedback" class="mt-4"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div id="solution" class="mt-4 hidden"&gt;&lt;h3 class="font-bold text-lg"&gt;Organizando la Información (El Plan):&lt;/h3&gt;...&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- Capítulo 3: De Tablas a Gráficos --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;section id="cap3" class="content-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="bg-white p-6 rounded-xl shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h2 class="text-2xl font-bold mb-2 text-blue-600"&gt;Capítulo 3: De Tablas a Gráficos&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="grid md:grid-cols-2 gap-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4 class="font-semibold text-lg mb-2"&gt;Tabla: ¿Qué harás después de graduarte?&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;table class="w-full text-left border-collapse"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;thead class="bg-slate-100"&gt;&lt;tr&gt;&lt;th class="p-2 border"&gt;Opción&lt;/th&gt;&lt;th class="p-2 border"&gt;# Estudiantes&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;&lt;td class="p-2 border"&gt;Ir a la Universidad&lt;/td&gt;&lt;td class="p-2 border"&gt;150&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;&lt;td class="p-2 border"&gt;Carrera Técnica&lt;/td&gt;&lt;td class="p-2 border"&gt;75&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;&lt;td class="p-2 border"&gt;Emprender&lt;/td&gt;&lt;td class="p-2 border"&gt;25&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;tr&gt;&lt;td class="p-2 border"&gt;Año Sabático&lt;/td&gt;&lt;td class="p-2 border"&gt;50&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                    </span>&lt;tr class="font-bold bg-slate-50"&gt;&lt;td class="p-2 border"&gt;Total&lt;/td&gt;&lt;td class="p-2 border"&gt;300&lt;/td&gt;&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div id="quiz-options" class="mt-4 space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button class="block w-full text-left p-3 border rounded-lg hover:bg-slate-50" onclick="checkQuizAnswer(false, this)"&gt;A: Un gráfico de líneas.&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button class="block w-full text-left p-3 border rounded-lg hover:bg-slate-50" onclick="checkQuizAnswer(false, this)"&gt;B: Un gráfico de barras.&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button class="block w-full text-left p-3 border rounded-lg hover:bg-slate-50" onclick="checkQuizAnswer(true, this)"&gt;C: Un gráfico circular.&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button class="block w-full text-left p-3 border rounded-lg hover:bg-slate-50" onclick="checkQuizAnswer(false, this)"&gt;D: Otra tabla.&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="mt-4 flex gap-4 items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;button id="retry-cap3" onclick="resetQuiz()" class="hidden bg-amber-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-600"&gt;Reintentar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                             </span>&lt;div id="quiz-feedback" class="mt-4 p-3 rounded-lg hidden"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div id="chart-result-container" class="flex items-center justify-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;canvas id="quizChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- SCORM 1.2 Integration ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const scorm = (function() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let API = null;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let connectionActive = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function findAPI(win) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let findAPITries = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Wrap in a try-catch block to prevent cross-origin errors</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>while ((win.API == null) &amp;&amp; (win.parent != null) &amp;&amp; (win.parent != win)) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>findAPITries++;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (findAPITries &gt; 7) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>console.warn("Error: Could not find SCORM API. Exceeded max tries.");</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>return null;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>win = win.parent;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch (e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.warn("SCORM findAPI failed with error:", e);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return win.API;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function init() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let win = window;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Wrap in a try-catch block to prevent cross-origin errors</p>
+<p class="p1"><span class="Apple-converted-space">            </span>try {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>API = findAPI(win);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if ((API == null) &amp;&amp; (win.opener != null) &amp;&amp; (typeof(win.opener) != "undefined")) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>API = findAPI(win.opener);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} catch(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.warn("SCORM init failed with error:", e);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (API == null) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.warn("SCORM API not found. Content will run in standalone mode.");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>connectionActive = API.LMSInitialize("");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if(connectionActive.toString() === "true"){</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const status = API.LMSGetValue("cmi.core.lesson_status");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if(status === "not attempted"){</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>API.LMSSetValue("cmi.core.lesson_status", "incomplete");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>API.LMSCommit("");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function setScore(newScore) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (connectionActive.toString() === "true") {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>API.LMSSetValue("cmi.core.score.raw", newScore);</p>
+<p class="p1"><span class="Apple-converted-space">                </span>API.LMSCommit("");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.log(`Standalone Mode: Score set to ${newScore}`);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function setCompleted() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (connectionActive.toString() === "true") {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>API.LMSSetValue("cmi.core.lesson_status", "completed");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>API.LMSCommit("");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>console.log("Standalone Mode: Course completed.");</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function finish() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (connectionActive.toString() === "true") {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>API.LMSFinish("");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>connectionActive = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>return { init, setScore, setCompleted, finish };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>})();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- Application State ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let score = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let cap2Completed = false;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let cap3Completed = false;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- UI Logic ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateScoreDisplay() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('score-display').textContent = `Puntaje: ${score}`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function updateScoreAndLMS() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>updateScoreDisplay();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>scorm.setScore(score);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (cap2Completed &amp;&amp; cap3Completed) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scorm.setCompleted();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>console.log("Both chapters completed!");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- Navigation Logic ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const sections = document.querySelectorAll('.content-section');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const navButtons = document.querySelectorAll('.nav-button');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showSection(sectionId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>sections.forEach(s =&gt; s.classList.remove('active'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>navButtons.forEach(b =&gt; b.classList.remove('tab-active'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(sectionId).classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelector(`button[onclick="showSection('${sectionId}')"]`).classList.add('tab-active');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- Chapter 1: Charts Logic ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chartTabs = document.querySelectorAll('.chart-tab');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const chartContents = document.querySelectorAll('.chart-content');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showChart(event, chartId) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>chartContents.forEach(c =&gt; c.classList.add('hidden'));</p>
+<p class="p1"><span class="Apple-converted-space">        </span>chartTabs.forEach(t =&gt; { t.classList.remove('tab-active'); t.classList.add('text-slate-500'); });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>event.currentTarget.classList.add('tab-active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>event.currentTarget.classList.remove('text-slate-500');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(chartId).classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>new Chart(document.getElementById('barChart'), { type: 'bar', data: { labels: ['Netflix', 'Twitch', 'YouTube', 'TikTok'], datasets: [{ label: 'Nº de Estudiantes', data: [120, 95, 80, 110], backgroundColor: ['#e50914', '#9146ff', '#ff0000', '#000000'] }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } } });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>new Chart(document.getElementById('lineChart'), { type: 'line', data: { labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'], datasets: [{ label: 'Puntuación Obtenida', data: [1200, 1500, 2500, 2550, 2600, 4800, 4200], borderColor: 'rgb(75, 192, 192)', tension: 0.1 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } } });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>new Chart(document.getElementById('pieChart'), { type: 'pie', data: { labels: ['Durmiendo (33%)', 'Colegio (25%)', 'Tareas (17%)', 'Ocio (15%)', 'Familia (10%)'], datasets: [{ data: [33, 25, 17, 15, 10], backgroundColor: ['#3b82f6', '#ef4444', '#f59e0b', '#22c55e', '#8b5cf6'], hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false } });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- Chapter 2: Detective Game Logic ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let currentTool = 'data';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const problemContainer = document.getElementById('problem-text');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const solutionDiv = document.getElementById('solution');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const feedbackDiv = document.getElementById('detective-feedback');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const problemData = [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ text: 'Para un evento de caridad, el grado 11° organizó una venta de comida. Se vendieron ', type: 'none' }, { text: '120 combos de hamburguesa', type: 'data' }, { text: ' a ', type: 'none' }, { text: '$15,000 cada uno', type: 'data' }, { text: '. Los combos de perro caliente, que costaban ', type: 'none' }, { text: 'un tercio menos', type: 'keyword' }, { text: ' que el de hamburguesa, vendieron ', type: 'none' }, { text: 'la mitad de unidades', type: 'keyword' }, { text: ' que las hamburguesas. Además, se vendieron ', type: 'none' }, { text: '50 bebidas sueltas', type: 'data' }, { text: ' a ', type: 'none' }, { text: '$3,000', type: 'data' }, { text: '. Si los ', type: 'none' }, { text: 'gastos totales', type: 'keyword' }, { text: ' en ingredientes fueron de ', type: 'none' }, { text: '$950,000', type: 'data' }, { text: ', ', type: 'none' }, { text: '¿cuál fue la ganancia neta del evento?', type: 'question' }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function setupDetectiveGame() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>problemContainer.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>problemData.forEach((part, index) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const span = document.createElement('span');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>span.textContent = part.text;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (part.type !== 'none') {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>span.classList.add('selectable');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>span.dataset.id = index;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>span.onclick = () =&gt; highlight(span);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>problemContainer.appendChild(span);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>solutionDiv.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedbackDiv.innerHTML = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedbackDiv.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('retry-cap2').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll('.tool-button').forEach(button =&gt; button.addEventListener('click', () =&gt; { currentTool = button.dataset.tool; }));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function highlight(span) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>span.className = 'selectable'; // Reset classes</p>
+<p class="p1"><span class="Apple-converted-space">        </span>span.classList.add(`highlight-${currentTool}`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>span.dataset.userSelection = currentTool;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function checkDetectiveWork() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let correctCount = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const selectableSpans = problemContainer.querySelectorAll('.selectable');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>selectableSpans.forEach(span =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (problemData[span.dataset.id].type === span.dataset.userSelection) correctCount++;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>feedbackDiv.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (correctCount === selectableSpans.length) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackDiv.className = 'mt-4 p-3 rounded-lg bg-green-100 text-green-800';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackDiv.innerHTML = `&lt;strong&gt;¡Excelente trabajo, detective!&lt;/strong&gt; (+10 Puntos) Has identificado todas las pistas correctamente.`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!cap2Completed) { score += 10; cap2Completed = true; updateScoreAndLMS(); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>solutionDiv.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackDiv.className = 'mt-4 p-3 rounded-lg bg-red-100 text-red-800';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackDiv.innerHTML = `&lt;strong&gt;Casi lo logras.&lt;/strong&gt; Tienes ${correctCount} de ${selectableSpans.length} pistas correctas. ¡Inténtalo de nuevo!`;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('retry-cap2').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetDetectiveWork() { setupDetectiveGame(); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- Chapter 3: Quiz Logic ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let quizChartInstance = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function checkQuizAnswer(isCorrect, element) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('#quiz-options button').forEach(btn =&gt; { btn.disabled = true; });</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('quiz-feedback').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (isCorrect) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>element.classList.add('bg-green-200');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('quiz-feedback').className = 'mt-4 p-3 rounded-lg bg-green-100 text-green-800';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('quiz-feedback').innerHTML = "&lt;strong&gt;¡Correcto!&lt;/strong&gt; (+10 Puntos) El gráfico circular es perfecto para mostrar proporciones.";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!cap3Completed) { score += 10; cap3Completed = true; updateScoreAndLMS(); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>renderQuizChart();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>element.classList.add('bg-red-200');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('quiz-feedback').className = 'mt-4 p-3 rounded-lg bg-red-100 text-red-800';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('quiz-feedback').innerHTML = "&lt;strong&gt;Incorrecto.&lt;/strong&gt; Piensa en la palabra clave: 'proporción'. ¿Qué gráfico es el mejor para mostrar cómo se divide un 100%?";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('retry-cap3').classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function resetQuiz() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.querySelectorAll('#quiz-options button').forEach(btn =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.disabled = false;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>btn.classList.remove('bg-green-200', 'bg-red-200');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('quiz-feedback').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('retry-cap3').classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (quizChartInstance) quizChartInstance.destroy();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('chart-result-container').innerHTML = '&lt;canvas id="quizChart"&gt;&lt;/canvas&gt;';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function renderQuizChart() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (quizChartInstance) quizChartInstance.destroy();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>quizChartInstance = new Chart(document.getElementById('quizChart'), { type: 'pie', data: { labels: ['Universidad (50%)', 'Técnica (25%)', 'Emprender (8.3%)', 'Sabático (16.7%)'], datasets: [{ data: [150, 75, 25, 50], backgroundColor: ['#3b82f6', '#10b981', '#f97316', '#6b7280'] }] }, options: { plugins: { title: { display: true, text: '¿Qué harás después de graduarte?' } } } });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// --- Initial Load ---</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onload = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>scorm.init();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showSection('intro');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>setupDetectiveGame();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.onunload = () =&gt; { scorm.finish(); };</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
